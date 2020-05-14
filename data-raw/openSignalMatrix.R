@@ -1,3 +1,5 @@
+library(GenomicDistributionsData)
+library(usethis)
 assemblyList=c("hg19","hg38")
 for(assembly in assemblyList){
     cellMatrix = buildOpenSignalMatrix(assembly)

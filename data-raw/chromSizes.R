@@ -1,3 +1,5 @@
+library(GenomicDistributionsData)
+library(usethis)
 assemblyList=c("hg19","hg38","mm9","mm10")
 for(assembly in assemblyList){
     storedObjectName = paste0("chromSizes_", assembly)
