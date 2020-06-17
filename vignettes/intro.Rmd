@@ -1,0 +1,75 @@
+---
+title: "Getting started with GenomicDistributionsData"
+author: "Jose Verdezoto"
+date: "`r Sys.Date()`"
+output: 
+  BiocStyle::html_document:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{1. Getting started with GenomicDistributionsData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE}
+# These settings make the vignette prettier
+knitr::opts_chunk$set(results="hold", collapse=FALSE, message=FALSE)
+#refreshPackage("GenomicDistributionsData")
+#devtools::build_vignettes("code/GenomicDistributionsData")
+#devtools::test("code/GenomicDistributionsData")
+```
+
+# Introduction to GenomicDistributionsData
+
+GenomicDistributionsData is the associated data package for GenomicDistributions. Using GenomicDistributionsData, we can generate datasets providing information about chromosome sizes, TRanscription Start Sites (TSS), gene models (exons, introns, etc) for 4 different genome assemblies: hg19, hg38, mm9 and mm10. In addition, GenomicDistributionsData generates matrices used for calculating the tissue specificity of a set of genomic ranges (currently for hg19 and hg38).
+
+In this vignette, we'll show the main functions used to generate the hg38 datasets that then can be used as input for the GenomicDistributions calculations and plots.
+
+## Chromosome sizes
+
+In order to get the chromosome sizes for one of the mentioned genome assemblies, we simply need to pass the assembly string to the folling function.
+
+```{r chrom-sizes}
+chrom = buildChromSizes("hg38")
+head(chrom, n=10)
+```
+
+## Transcription Start Sites (TSS)
+
+Similarly, if we wish to get the location of the TSS for a sepcific genome assembly, we simply need to pass the apporpriate string to the main
+buildTSS function. 
+
+```{r Transcription-Start-Sites}
+TSS_hg38 = buildTSS("hg38")
+head(TSS_hg38)
+```
+
+## Gene Models
+
+GenomicDistributionsData can build gene models, which can point the location of features such as genes, exons, 3` and 5` UTRs. 
+
+```{r gene-models}
+hg38GeneModels = buildGeneModels("hg38")
+
+# Get the locations of exons
+hg38GeneModels[["exonsGR"]]
+```
+
+
+## Open signal matrix
+
+Lastly, we can build the open signal matrix in a similar fashion.
+
+
+```{r open-signal-matrix, eval=FALSE}
+hg38OpenSignal = buildOpenSignalMatrix("hg38")
+head(hg38OpenSignal)
+```
+
+
+
+
+
+
+
+

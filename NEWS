@@ -1,0 +1,7 @@
+# Change log
+Changes to the GenomicDistributionsData project will be documented in this file. 
+
+## [0.0.1] -- 2020-05-20
+
+  - Added of helper functions to build genome assembly specific data
+  - Included travis yaml file. 

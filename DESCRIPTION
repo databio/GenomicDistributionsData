@@ -1,6 +1,6 @@
 Package: GenomicDistributionsData
 Title: Reference data for GenomicDistributions package
-Version: 0.0.1
+Version: 0.99.0
 Authors@R:c(person(given = "Michal",
            family = "Stolarczyk",
            role = c("aut", "cre"),
@@ -13,6 +13,7 @@ Authors@R:c(person(given = "Michal",
     person(c("Nathan", "C."), "Sheffield", role="ctb"))
 Description: This package provides ready to use reference data for GenomicDistributions package.
 License: BSD_2_clause + file LICENSE
+biocViews: ExperimentHub, ExperimentData, Genome
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
