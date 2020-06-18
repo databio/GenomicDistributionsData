@@ -1,78 +1,33 @@
 ### =====================================================
 ### GenomicDistributionsData
 
-## Build helper functions to build the R objects later on. 
-#' Checks to make sure a package object is installed,
-#' and if so, returns it. If the library is not installed, it issues a warning
-#' and returns NULL.
-.requireAndReturn = function(BSgenomeString) {
-  if (requireNamespace(BSgenomeString))
-    return(utils::getAnywhere(BSgenomeString)$objs[[1]])
-  else
-    warning(BSgenomeString, " is not installed")
-  return(NULL)
-}
 
+### Step 0 - We'll use a few helper functions to load libraries from which we'll extract the data ### 
+# This step is only for reference, as the main building functions already incorporate these loading scripts.  
 
-#' Load selected EnsDb library
-loadEnsDb = function(genomeBuild) {
-  databasePkgString = switch (genomeBuild,
-                              grch38 = "EnsDb.Hsapiens.v86",
-                              hg38 = "EnsDb.Hsapiens.v86",
-                              hg19 = "EnsDb.Hsapiens.v75",
-                              mm10 = "EnsDb.Mmusculus.v79",
-                              bogus = "bogus" # a bogus (uninstalled) db for unit tests
-  )
-  
-  if (is.null(databasePkgString)) {
-    stop("I don't know how to map the string ", genomeBuild,
-         " to a EnsDb")
-  }
-  return(.requireAndReturn(databasePkgString))
-}
+# To load a specific TxDb library
+TxDb = loadTxDb("hg38")
 
+# To load a specific Ensdb library
+Ensdb = loadEnsDb("hg38")
 
-#' Load selected TxDb library
-loadTxDb = function(genomeBuild) {
-  databasePkgString = switch (genomeBuild,
-                              grch38 = "TxDb.Hsapiens.UCSC.hg38.knownGene",
-                              hg38 = "TxDb.Hsapiens.UCSC.hg38.knownGene",
-                              hg19 = "TxDb.Hsapiens.UCSC.hg19.knownGene",
-                              mm10 = "TxDb.Mmusculus.UCSC.mm10.knownGene",
-                              mm9 = "TxDb.Mmusculus.UCSC.mm9.knownGene",
-                              bogus = "bogus" # a bogus (uninstalled) db for unit tests
-  )
-  if (is.null(databasePkgString))
-    stop("I don't know how to map the string ", genomeBuild, " to a TxDb")
-  return(.requireAndReturn(databasePkgString))
-}
+# We can also load a BSgenome object by simply passing a string 
+BSgenome = loadBSgenome("hg38")
 
-#' Loads BSgenome objects from UCSC-style character vectors.
-loadBSgenome = function(genomeBuild, masked=TRUE) {
-  # Convert the given string into the BSgenome notation
-  if (!requireNamespace("BSgenome", quietly=TRUE)) {
-    message("BSgenome package is not installed.")
-  }
-  databasePkgString = switch (genomeBuild,
-                              grch38 = "BSgenome.Hsapiens.UCSC.hg38",
-                              hg38 = "BSgenome.Hsapiens.UCSC.hg38",
-                              hg19 = "BSgenome.Hsapiens.UCSC.hg19",
-                              mm10 = "BSgenome.Mmusculus.UCSC.mm10",
-                              mm9 = "BSgenome.Mmusculus.UCSC.mm9",
-                              bogus = "bogus" # a bogus (uninstalled) genome for unit tests
-  )
-  if (masked) {
-    databasePkgString = paste0(databasePkgString, ".masked")
-  }
-  
-  if (is.null(databasePkgString)) {
-    stop("I don't know how to map the string ", genomeBuild,
-         " to a BSgenome")
-  }
-  return(.requireAndReturn(databasePkgString))
-}
+### Step 1 -  Use the main functions to process and build datasets from those libraries ###
 
-## Detail the steps to build the R objects
+# Build chomosome sizes
+chrom = buildChromSizes("hg38")
+
+# Build Transcription Start Sites
+TSS = buildTSS("hg38")
+
+# Build gene models
+geneModels = buildGeneModels("hg38")
+
+# Build Open chromatin signal matrices
+openSignal = buildOpenSignalMatrix("hg38")
+
 
 
 

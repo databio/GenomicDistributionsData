@@ -21,44 +21,43 @@ knitr::opts_chunk$set(results="hold", collapse=FALSE, message=FALSE)
 
 # Introduction to GenomicDistributionsData
 
-GenomicDistributionsData is the associated data package for GenomicDistributions. Using GenomicDistributionsData, we can generate datasets providing information about chromosome sizes, TRanscription Start Sites (TSS), gene models (exons, introns, etc) for 4 different genome assemblies: hg19, hg38, mm9 and mm10. In addition, GenomicDistributionsData generates matrices used for calculating the tissue specificity of a set of genomic ranges (currently for hg19 and hg38).
+GenomicDistributionsData is the associated data package for GenomicDistributions. Using GenomicDistributionsData, we can generate information about chromosome sizes, TRanscription Start Sites (TSS), gene models (exons, introns, etc) for 4 different genome assemblies: **hg19, hg38, mm9 and mm10**. These datasets can then be used as input for the main functions in the GenomicDistributions Package. Additionally, GenomicDistributionsData generates open chromatin signal matrices used for calculating the tissue specificity of a set of genomic ranges (currently for hg19 and hg38).
 
-In this vignette, we'll show the main functions used to generate the hg38 datasets that then can be used as input for the GenomicDistributions calculations and plots.
+In this vignette, we'll show the usage of the main functions to generate hg38 data.
 
 ## Chromosome sizes
 
-In order to get the chromosome sizes for one of the mentioned genome assemblies, we simply need to pass the assembly string to the folling function.
+Cromosome lengths are used as input for Chromosome distribution plots in GenomicDistributions. In order to get the chromosome lengths for the hg38 genome reference, we simply need to pass the assembly string to the following function:
 
 ```{r chrom-sizes}
-chrom = buildChromSizes("hg38")
-head(chrom, n=10)
+chromSizes = buildChromSizes("hg38")
+head(chromSizes, n=10)
 ```
 
 ## Transcription Start Sites (TSS)
 
-Similarly, if we wish to get the location of the TSS for a sepcific genome assembly, we simply need to pass the apporpriate string to the main
-buildTSS function. 
+Similarly, if we wish to get the location of the TSS of the hg38 genome assembly (used to calculate distances of genomic regions to these features), we just need to pass the apporpriate string to the main buildTSS function:
 
 ```{r Transcription-Start-Sites}
-TSS_hg38 = buildTSS("hg38")
-head(TSS_hg38)
+TSS = buildTSS("hg38")
+head(TSS)
 ```
 
 ## Gene Models
 
-GenomicDistributionsData can build gene models, which can point the location of features such as genes, exons, 3` and 5` UTRs. 
+GenomicDistributionsData can build gene models, which point the location of features such as genes, exons, 3 and 5 UTRs. This information can then be used by GenomicDistributions to calculate the distribution of regions across genome annotation classes. As in the previous functions, we need to pass one of the supported assembly strings:  
 
 ```{r gene-models}
-hg38GeneModels = buildGeneModels("hg38")
+GeneModels = buildGeneModels("hg38")
 
 # Get the locations of exons
-hg38GeneModels[["exonsGR"]]
+head(GeneModels[["exonsGR"]])
 ```
 
 
-## Open signal matrix
+## Open signal matrices
 
-Lastly, we can build the open signal matrix in a similar fashion.
+Lastly, Genomic DistributionsData can generate an open chromatin signal matrix that will be used to calculate and plot the tissue specificity of a set of genomic ranges. This can be achieved by passing the genome assembly string to the following function:
 
 
 ```{r open-signal-matrix, eval=FALSE}
@@ -66,7 +65,7 @@ hg38OpenSignal = buildOpenSignalMatrix("hg38")
 head(hg38OpenSignal)
 ```
 
-
+That's it. Although the package currently supports the ** hg19, hg38, mm9 and mm10** reference assemblies, GenomicDistributionsData is flexible enough to use other genomes. This can be achieved by a few tweaks in the main functions availble under the R directory. 
 
 
 
