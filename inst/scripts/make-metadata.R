@@ -66,5 +66,5 @@ meta <- data.frame(
   Tags = ""
 )
 
-write.csv(meta, file="~/Desktop/GDdata_release/GenomicDistributionsData/inst/extdata/metadata.csv", row.names=FALSE)
-ExperimentHubData::makeExperimentHubMetadata("~/Desktop/GDdata_release/GenomicDistributionsData", fileName = "metadata.csv")
+write.csv(meta, file="inst/extdata/metadata.csv", row.names=FALSE)
+#ExperimentHubData::makeExperimentHubMetadata("~/Desktop/GDdata_release/GenomicDistributionsData", fileName = "metadata.csv")
