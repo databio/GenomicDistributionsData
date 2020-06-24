@@ -14,7 +14,7 @@ meta <- data.frame(
                   "A dataset containing chromosome sizes for the Homo sapiens hg38 genome assembly",
                   "A dataset containing chromosome sizes for the Mus musculus mm9 genome assembly",
                   "A dataset containing chromosome sizes for the Mus musculus mm10 genome assembly",
-                  "A dataset containing Transcription Start Sites (TSS) for the Homo Sapiens hg19 genome assembly",
+                  "A dataset containing Transcription Start Sites (TSS) for the Homo sapiens hg19 genome assembly",
                   "A dataset containing Transcription Start Sites (TSS) for the Homo sapiens hg38 genome assembly",
                   "A dataset containing Transcription Start Sites (TSS) for the Mus musculus mm9 genome assembly",
                   "A dataset containing Transcription Start Sites (TSS) for the Mus musculus mm10 genome assembly",
