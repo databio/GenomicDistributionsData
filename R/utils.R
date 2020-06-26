@@ -73,8 +73,8 @@ loadTxDb = function(genomeBuild) {
 #' more complex annotation for a complete BSgenome object (e.g.
 #' BSgenome.Hsapiens.UCSC.hg38.masked)
 #' 
-#' @param genomeBuild	One of 'hg19', 'hg38', 'mm10', 'mm9', or 'grch38'
-#' @param masked	Should we used the masked version? Default:TRUE
+#' @param genomeBuild One of 'hg19', 'hg38', 'mm10', 'mm9', or 'grch38'
+#' @param masked Should we used the masked version? Default:TRUE
 #' @export
 #' @import BSgenome
 #' @import GenomicRanges

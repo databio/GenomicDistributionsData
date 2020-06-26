@@ -25,6 +25,14 @@ GenomicDistributionsData is the associated data package for GenomicDistributions
 
 In this vignette, we'll show the usage of the main functions to generate hg38 data.
 
+## Load GenomicDistributionsData
+
+Start by loading up the package:
+
+```{r echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+library(GenomicDistributionsData)
+```
+
 ## Chromosome sizes
 
 Cromosome lengths are used as input for Chromosome distribution plots in GenomicDistributions. In order to get the chromosome lengths for the hg38 genome reference, we simply need to pass the assembly string to the following function:
@@ -65,7 +73,7 @@ hg38OpenSignal = buildOpenSignalMatrix("hg38")
 head(hg38OpenSignal)
 ```
 
-That's it. Although the package currently supports the ** hg19, hg38, mm9 and mm10** reference assemblies, GenomicDistributionsData is flexible enough to use other genomes. This can be achieved by a few tweaks in the main functions availble under the R directory. 
+That's it. Although the package currently supports the **hg19, hg38, mm9 and mm10** reference assemblies, GenomicDistributionsData is flexible enough to use other genomes. This can be achieved by a few tweaks in the main functions available under the R directory. 
 
 
 
