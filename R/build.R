@@ -49,8 +49,8 @@ buildGeneModels <- function(refAssembly) {
                                                     filter = codingFilter,
                                                     columns = NULL)
         UTR3Feats = ensembldb::threeUTRsByTranscript(EnsDb, 
-                                                     filter = codingFilter, 
-                                                     columns = NULL)
+                                                    filter = codingFilter, 
+                                                    columns = NULL)
         UTR5Feats = unlist(UTR5Feats)
         UTR3Feats = unlist(UTR3Feats)
         # Smash 
@@ -74,7 +74,7 @@ buildGeneModels <- function(refAssembly) {
         seqlevels(UTR5Feats) = paste0("chr", seqlevels(UTR5Feats))
         seqlevels(UTR3Feats) = paste0("chr", seqlevels(UTR3Feats))
         list(genesGR=geneFeats, exonsGR=exonFeats, threeUTRGR=UTR3Feats, 
-             fiveUTRGR=UTR5Feats)
+            fiveUTRGR=UTR5Feats)
     }, error=function(err){
         # Try a TxDb instead
         message("Failed, trying a UCSC TxDb instead")
@@ -88,7 +88,7 @@ buildGeneModels <- function(refAssembly) {
         geneFeats = reduce(geneFeats)
         exonFeats = reduce(exonFeats)
         list(genesGR=geneFeats, exonsGR=exonFeats,  threeUTRGR=UTR3Feats, 
-             fiveUTRGR=UTR5Feats)
+            fiveUTRGR=UTR5Feats)
     })
     return(geneModels)
 }
@@ -155,7 +155,7 @@ buildOpenSignalMatrix <- function(assembly) {
     message("building ", storedObjectName)
     f = tempfile(pattern=storedObjectName, fileext=".txt.gz")
     url=paste0("http://big.databio.org/open_chromatin_matrix/openSignalMatrix_", 
-               assembly, "_quantileNormalized_round4.txt.gz")
+                assembly, "_quantileNormalized_round4.txt.gz")
     utils::download.file(url=url, destfile=f)
     message("reading ", f)
     cellMatrix = data.table::fread(f)

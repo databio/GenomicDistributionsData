@@ -26,6 +26,6 @@ A dataset containing gene models for Mus musculus mm10 genome assembly
 }
 \examples{
 mm10GeneModels = geneModels_mm10()
- 
+
 }
 \keyword{datasets}

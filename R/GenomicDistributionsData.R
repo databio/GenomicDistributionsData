@@ -10,9 +10,7 @@
 #'         Details on how the data files were created can be 
 #'         found under the R directory in utils.R and build.R
 #'         
-#'         
 #'@import ExperimentHub
-#'@import ExperimentHubData
 #'@importFrom utils  read.csv 
 #'@importFrom AnnotationHub  query
 #'        

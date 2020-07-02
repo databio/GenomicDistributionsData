@@ -17,16 +17,12 @@ install.packages("http://big.databio.org/GenomicDistributionsData/GenomicDistrib
 
 ### Locally from this repository
 
-Does not include `.rda` data files. Need to build them locally. From command line:
+Does not include `.rda` data files. These can be accessed using ExperimentHub or with named functions 
+as detailed in the package vignette.
 
 ```bash
 git clone https://github.com/databio/GenomicDistributionsData.git
 cd GenomicDistributionsData
-R CMD INSTALL .
-for file in data-raw/*
-do
-  Rscript "$file"
-done
 R CMD INSTALL .
 ```
 
@@ -34,5 +30,11 @@ R CMD INSTALL .
 
 ```r
 library("GenomicDistributionsData")
-data(TSS_hg38)
+TSS_hg38()
+```
+Alternatively:
+
+```r
+hub = ExperimentHub()
+TSShg38 = hub[["EH3477"]]
 ```

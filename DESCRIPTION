@@ -5,7 +5,7 @@ Authors@R:c(person(given = "Michal",
            family = "Stolarczyk",
            role = c("aut", "cre"),
            email = "mjs5kd@virginia.edu"),
-    person("Jose", "Verdezoto", role="ctb"),
+    person("Jose", "Verdezoto", role="aut"),
     person("John", "Lawson", role="ctb"),
     person("Jason", "Smith", role="ctb"),
     person("Kristyna", "Kupkova", role="ctb"),
@@ -24,7 +24,6 @@ Depends:
     R (>= 4.0)
 Imports:
     ExperimentHub (>= 1.14.0),
-    ExperimentHubData,
     AnnotationHub,
     AnnotationFilter,
     data.table,

@@ -210,7 +210,7 @@ NULL
 #' @return A list with two GRanges objects.
 #' @examples 
 #' mm10GeneModels = geneModels_mm10()
-#'  
+#' 
 NULL
 
 #' mm9 gene models
@@ -229,7 +229,7 @@ NULL
 #' @return A list with two GRanges objects.
 #' @examples 
 #' mm9GeneModels = geneModels_mm9()
-#'  
+#' 
 NULL
 
 

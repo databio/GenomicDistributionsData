@@ -2,7 +2,6 @@
 
 import(BSgenome)
 import(ExperimentHub)
-import(ExperimentHubData)
 import(GenomeInfoDb)
 import(GenomicFeatures)
 import(GenomicRanges)

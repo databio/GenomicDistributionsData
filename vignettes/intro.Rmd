@@ -3,12 +3,12 @@ title: "Getting started with GenomicDistributionsData"
 author: "Jose Verdezoto"
 date: "`r Sys.Date()`"
 output: 
-  BiocStyle::html_document:
+    BiocStyle::html_document:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{1. Getting started with GenomicDistributionsData}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{1. Getting started with GenomicDistributionsData}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, echo=FALSE}
@@ -60,7 +60,7 @@ head(c)
 
 We can also access each file and its respective metadata using the following alternate approach:
 
-``` {r chrom-sizes-meta, eval=FALSE}
+``` {r chrom-sizes-meta}
 # Access the chrom sizes file and inspect its metadata
 chromSizes = query(hub, c("GenomicDistributionsData", "chromSizes_hg38"))
 chromSizes
@@ -103,6 +103,28 @@ Lastly, Genomic DistributionsData can generate an open chromatin signal matrix t
 OpenSignal = hub[["EH3485"]]
 head(OpenSignal)
 ```
+
+## Access data using file named functions
+
+GenomicDistributionsData also incorporates an ExperimentHub wrapper that exports each resource name into a function. This allows data to be loaded by name:
+
+``` {r load-data-by-name, eval=FALSE}
+chromSizes_hg38()
+chromSizes_hg19()
+chromSizes_mm10()
+chromSizes_mm9()
+TSS_hg38()
+TSS_hg19()
+TSS_mm10()
+TSS_mm9()
+geneModels_hg38()
+geneModels_hg19()
+geneModels_mm10()
+geneModels_mm9()
+openSignalMatrix_hg38()
+openSignalMatrix_hg19()
+```
+
 
 That's it. Although the package currently supports the **hg19, hg38, mm9 and mm10** reference assemblies, GenomicDistributionsData is flexible enough to use other genomes. This can be achieved by a few tweaks in the main functions available on the R directory. 
 

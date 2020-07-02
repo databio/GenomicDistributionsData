@@ -35,7 +35,7 @@ loadEnsDb = function(genomeBuild) {
     
     if (is.null(databasePkgString)) {
         stop("I don't know how to map the string ", genomeBuild,
-             " to a EnsDb")
+                " to a EnsDb")
     }
     return(.requireAndReturn(databasePkgString))
 }
@@ -103,7 +103,7 @@ loadBSgenome = function(genomeBuild, masked=TRUE) {
     
     if (is.null(databasePkgString)) {
         stop("I don't know how to map the string ", genomeBuild,
-             " to a BSgenome")
+                " to a BSgenome")
     }
     return(.requireAndReturn(databasePkgString))
 }

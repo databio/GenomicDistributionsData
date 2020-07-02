@@ -1,7 +1,14 @@
 # Change log
 Changes to the GenomicDistributionsData project will be documented in this file. 
 
+## [0.99.0] -- 2020-06-02
+
+  - Built files metadata.
+  - Added ExperimentHub functionality to retrieve data.
+  - Key changes to data files documentation.
+
+
 ## [0.0.1] -- 2020-05-20
 
-  - Added of helper functions to build genome assembly specific data
+  - Added of helper functions to build genome assembly specific data.
   - Included travis yaml file. 
