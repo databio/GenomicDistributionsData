@@ -5,7 +5,7 @@
 #' @return named int, sizes of chromosome with respective names
 #' 
 #' @importFrom GenomeInfoDb seqlengths
-#' @export
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -24,8 +24,9 @@ buildChromSizes <- function(assembly) {
 #' @param refAssembly string, reference assembly identifier to build gene
 #'  model for
 #'
-#' @return a list of four GRanges objects: genesGR, exonsGR, threeUTRGR, fiveUTRGR
-#' @export
+#' @return a list of four GRanges objects: genesGR, exonsGR, threeUTRGR, 
+#' fiveUTRGR
+#' 
 #' @import ensembldb
 #' @import GenomicRanges
 #' @import GenomicFeatures
@@ -44,9 +45,11 @@ buildGeneModels <- function(refAssembly) {
         codingFilter = AnnotationFilter::AnnotationFilter(~ gene_biotype == "protein_coding")
         geneFeats = ensembldb::genes(EnsDb, filter = codingFilter, columns=NULL)
         exonFeats = ensembldb::exons(EnsDb, filter = codingFilter, columns=NULL)
-        UTR5Feats = ensembldb::fiveUTRsByTranscript(EnsDb, filter = codingFilter,
+        UTR5Feats = ensembldb::fiveUTRsByTranscript(EnsDb, 
+                                                    filter = codingFilter,
                                                     columns = NULL)
-        UTR3Feats = ensembldb::threeUTRsByTranscript(EnsDb, filter = codingFilter, 
+        UTR3Feats = ensembldb::threeUTRsByTranscript(EnsDb, 
+                                                     filter = codingFilter, 
                                                      columns = NULL)
         UTR5Feats = unlist(UTR5Feats)
         UTR3Feats = unlist(UTR3Feats)
@@ -95,7 +98,7 @@ buildGeneModels <- function(refAssembly) {
 #' @param assembly string, reference assembly identifier to TSS for
 #'
 #' @return GRanges object that consists of transcription start sites locations
-#' @export
+#' 
 #' @import ensembldb
 #' @import GenomicRanges
 #' @import GenomicFeatures
@@ -141,7 +144,7 @@ buildTSS <- function(assembly) {
 #' @return data.frame, rows represent whole selection of open 
 #' chromatin regions across all cell types defined by ENCODE, columns are 
 #' individual cell types and values are normalized open chromatin signal values
-#' @export
+#' 
 #'
 #' @examples
 #' \dontrun{
