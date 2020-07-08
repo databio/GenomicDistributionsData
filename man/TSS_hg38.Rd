@@ -5,15 +5,28 @@
 \alias{TSS_hg38}
 \title{hg38 TSS locations}
 \format{
-A named vectors of lengths with one item per chromosome
+A GRanges object with Transcription Start Site locations
 }
 \source{
 EnsDb.Hsapiens.v86 package
 }
 \usage{
-data(TSS_hg38)
+TSS_hg38(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A GRanges object with hg38 TSS locations.
 }
 \description{
-A dataset containing chromosome sizes for Homo Sapiens hg38 genome assembly
+A dataset containing Transcription Start Sites for the Homo sapiens
+hg38 genome assembly
+}
+\examples{
+hg38TSS = TSS_hg38()
+
 }
 \keyword{datasets}

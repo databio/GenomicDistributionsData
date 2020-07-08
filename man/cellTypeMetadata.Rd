@@ -10,9 +10,6 @@ data.table with 3 columns (cellType, tissue and group) and 74 rows (one per cell
 \source{
 self-curated dataset
 }
-\usage{
-data(cellTypeMetadata)
-}
 \description{
 Table the maps cell types to tissues and groups
 }

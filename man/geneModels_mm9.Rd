@@ -11,9 +11,21 @@ A list of two GRanges objects, with genes and exons locations
 TxDb.Mmusculus.UCSC.mm9.knownGene package
 }
 \usage{
-data(geneModels_mm9)
+geneModels_mm9(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A list with two GRanges objects.
 }
 \description{
-A dataset containing gene models for Mus Musculus mm9 genome assembly
+A dataset containing gene models for Mus musculus mm9 genome assembly
+}
+\examples{
+mm9GeneModels = geneModels_mm9()
+
 }
 \keyword{datasets}

@@ -11,9 +11,22 @@ A named vectors of lengths with one item per chromosome
 TxDb.Mmusculus.UCSC.mm9.knownGene package
 }
 \usage{
-data(TSS_mm9)
+TSS_mm9(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A GRanges object with mm9 TSS locations.
 }
 \description{
-A dataset containing chromosome sizes for Mus Musculus mm9 genome assembly
+A dataset containing Transcription Start Sites for the Mus musculus
+mm9 genome assembly
+}
+\examples{
+mm9TSS = TSS_mm9()
+
 }
 \keyword{datasets}

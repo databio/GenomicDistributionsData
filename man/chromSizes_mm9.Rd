@@ -11,9 +11,21 @@ A named vectors of lengths with one item per chromosome
 BSgenome.MMusculus.UCSC.mm9 package
 }
 \usage{
-data(chromSizes_mm9)
+chromSizes_mm9(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A vector of lengths
 }
 \description{
-A dataset containing chromosome sizes for Mus Musculus mm9 genome assembly
+A dataset containing chromosome sizes for Mus musculus mm9 genome assembly
+}
+\examples{
+mm9c = chromSizes_mm9()
+
 }
 \keyword{datasets}

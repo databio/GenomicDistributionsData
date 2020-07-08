@@ -11,7 +11,8 @@ buildGeneModels(refAssembly)
 model for}
 }
 \value{
-a list of four GRanges objects: genesGR, exonsGR, threeUTRGR, fiveUTRGR
+a list of four GRanges objects: genesGR, exonsGR, threeUTRGR,
+fiveUTRGR
 }
 \description{
 Build gene models

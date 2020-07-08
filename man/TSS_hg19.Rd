@@ -5,15 +5,25 @@
 \alias{TSS_hg19}
 \title{hg19 TSS locations}
 \format{
-A named vectors of lengths with one item per chromosome
+A GRanges object with Transcription Start Site locations
 }
 \source{
 EnsDb.Hsapiens.v75 package
 }
 \usage{
-data(TSS_hg19)
+TSS_hg19(metadata=FALSE)
+#' @param metadata \code{logical} value indicating whether only
+    metadata should be returned or if the resource
+    should be loaded
+}
+\value{
+A GRanges object with hg19 TSS locations.
 }
 \description{
-A dataset containing chromosome sizes for for Homo Sapiens hg19 genome assembly
+A dataset containing Transcription Start Sites for Homo sapiens hg19 genome assembly
+}
+\examples{
+hg19TSS = TSS_hg19()
+
 }
 \keyword{datasets}

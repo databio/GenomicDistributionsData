@@ -1,0 +1,135 @@
+---
+title: "Getting started with GenomicDistributionsData"
+author: "Jose Verdezoto"
+date: "`r Sys.Date()`"
+output: 
+    BiocStyle::html_document:
+    toc: true
+vignette: >
+    %\VignetteIndexEntry{1. Getting started with GenomicDistributionsData}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo=FALSE}
+# These settings make the vignette prettier
+knitr::opts_chunk$set(results="hold", collapse=FALSE, message=FALSE)
+#refreshPackage("GenomicDistributionsData")
+#devtools::build_vignettes("code/GenomicDistributionsData")
+#devtools::test("code/GenomicDistributionsData")
+```
+
+# Introduction to GenomicDistributionsData
+
+GenomicDistributionsData is the associated data package for GenomicDistributions. Using GenomicDistributionsData, we can generate information about chromosome sizes, TRanscription Start Sites (TSS), gene models (exons, introns, etc) for 4 different genome assemblies: **hg19, hg38, mm9 and mm10**. These datasets can then be used as input for the main functions in the GenomicDistributions Package. Additionally, GenomicDistributionsData generates open chromatin signal matrices used for calculating the tissue specificity of a set of genomic ranges (currently for hg19 and hg38).
+
+In this vignette we'll go over the steps to access the **hg38** data files using the *ExperimentHub* interface. 
+
+## Load GenomicDistributionsData and ExperimentHub
+
+Start by loading up GenomicDistributionsData and the ExperimentHub packages:
+
+```{r echo=TRUE, results="hide", message=FALSE, warning=FALSE}
+library(GenomicDistributionsData)
+library(ExperimentHub)
+```
+
+## Create an ExperimentHub object and inspect the data
+
+```{r, ExpHub-Obj}
+hub = ExperimentHub()
+query(hub, "GenomicDistributionsData")
+```
+
+For details on data sources and the functions used to build the data files, see `?GenomicDistributionsData`
+and the scripts: 
+
+* `inst/scripts/make-metadata.R`
+* `R/utils.R`
+* `R/build.R`
+
+## Chromosome Sizes
+
+Cromosome lengths are used as input for Chromosome distribution plots in GenomicDistributions. In order to get the chromosome lengths for the hg38 genome reference, we simply need to use the ExperimentHub identifier or pass the assembly string to the **buildChromSizes()** function:
+
+```{r chrom-sizes}
+# Retrieve the chrom sizes file
+c = hub[["EH3473"]]
+head(c)
+```
+
+We can also access each file and its respective metadata using the following alternate approach:
+
+``` {r chrom-sizes-meta}
+# Access the chrom sizes file and inspect its metadata
+chromSizes = query(hub, c("GenomicDistributionsData", "chromSizes_hg38"))
+chromSizes
+```
+
+``` {r chrom-sizes-alt, eval=FALSE}
+# Retrieve the chromosome sizes file from ExperimentHub
+c2 = chromSizes[[1]]
+```
+
+## Transcription Start Sites (TSS)
+
+Similarly, if we wish to get the location of the TSS of the hg38 genome assembly (used to calculate distances of genomic regions to these features), we just need to pass the appropriate ExperimentHub identifier or assembly string to the  **buildTSS()** function:
+
+```{r Transcription-Start-Sites}
+TSS = hub[["EH3477"]]
+TSS[1:3, "symbol"]
+```
+
+## Gene Models
+
+GenomicDistributionsData can build gene models, which point the location of features such as genes, exons, 3 and 5 UTRs. This information can then be used by GenomicDistributions to calculate the distribution of regions across genome annotation classes. As in the previous cases, we need to pass the ExperimentHub identifier or build them using the **buildGeneModels()** function  with the proper assembly string:  
+
+```{r gene-models}
+#GeneModels = buildGeneModels("hg38")
+GeneModels = hub[["EH3481"]]
+
+# Get the locations of exons
+head(GeneModels[["exonsGR"]])
+```
+
+
+## Open Signal Matrices
+
+Lastly, Genomic DistributionsData can generate an open chromatin signal matrix that will be used to calculate and plot the tissue specificity of a set of genomic ranges. This can be achieved by using the appropriate ExperimentHub identifier or passing the genome assembly string to the **buildOpenSignalMatrix()** function:
+
+
+```{r open-signal-matrix, eval=FALSE}
+#hg38OpenSignal = buildOpenSignalMatrix("hg38")
+OpenSignal = hub[["EH3485"]]
+head(OpenSignal)
+```
+
+## Access data using file named functions
+
+GenomicDistributionsData also incorporates an ExperimentHub wrapper that exports each resource name into a function. This allows data to be loaded by name:
+
+``` {r load-data-by-name, eval=FALSE}
+chromSizes_hg38()
+chromSizes_hg19()
+chromSizes_mm10()
+chromSizes_mm9()
+TSS_hg38()
+TSS_hg19()
+TSS_mm10()
+TSS_mm9()
+geneModels_hg38()
+geneModels_hg19()
+geneModels_mm10()
+geneModels_mm9()
+openSignalMatrix_hg38()
+openSignalMatrix_hg19()
+```
+
+
+That's it. Although the package currently supports the **hg19, hg38, mm9 and mm10** reference assemblies, GenomicDistributionsData is flexible enough to use other genomes. This can be achieved by a few tweaks in the main functions available on the R directory. 
+
+
+
+
+
+

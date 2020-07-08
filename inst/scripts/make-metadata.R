@@ -1,0 +1,70 @@
+### =========================================================================
+### GenomicDistributions Metadata
+### -------------------------------------------------------------------------
+###
+
+
+GD = "GenomicDistributionsData/data/"
+meta <- data.frame(
+  Title = c("chromSizes_hg19", "chromSizes_hg38", "chromSizes_mm9", "chromSizes_mm10",
+            "TSS_hg19", "TSS_hg38", "TSS_mm9", "TSS_mm10",
+            "geneModels_hg19", "geneModels_hg38", "geneModels_mm9", "geneModels_mm10",
+            "openSignalMatrix_hg19", "openSignalMatrix_hg38"),
+  Description = c("A dataset containing chromosome sizes for the Homo sapiens hg19 genome assembly",
+                  "A dataset containing chromosome sizes for the Homo sapiens hg38 genome assembly",
+                  "A dataset containing chromosome sizes for the Mus musculus mm9 genome assembly",
+                  "A dataset containing chromosome sizes for the Mus musculus mm10 genome assembly",
+                  "A dataset containing Transcription Start Sites (TSS) for the Homo sapiens hg19 genome assembly",
+                  "A dataset containing Transcription Start Sites (TSS) for the Homo sapiens hg38 genome assembly",
+                  "A dataset containing Transcription Start Sites (TSS) for the Mus musculus mm9 genome assembly",
+                  "A dataset containing Transcription Start Sites (TSS) for the Mus musculus mm10 genome assembly",
+                  "A dataset containing gene and exons locations for the Homo sapiens hg19 genome assembly",
+                  "A dataset containing gene and exons locations for the Homo sapiens hg38 genome assembly",
+                  "A dataset containing gene and exons locations for the Mus musculus  mm9 genome assembly",
+                  "A dataset containing gene and exons locations for the Mus musculus  mm10 genome assembly",
+                  "A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo sapiens hg19",
+                  "A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo sapiens hg38"),
+  BiocVersion = rep("3.12", 14),
+  Genome = c(rep(c("hg19", "hg38", "mm9", "mm10"), 3), "hg19", "hg38"), 
+  SourceType = c(rep("UCSC track", 4), rep(c("ensembl", "ensembl", "ensembl", "ensembl"), 2), rep("TXT", 2)), 
+  SourceUrl = c("https://bioconductor.org/packages/release/data/annotation/html/BSgenome.Hsapiens.UCSC.hg19.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/BSgenome.Hsapiens.UCSC.hg38.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/BSgenome.Mmusculus.UCSC.mm9.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/BSgenome.Mmusculus.UCSC.mm10.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/EnsDb.Hsapiens.v75.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/EnsDb.Hsapiens.v86.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/EnsDb.Mmusculus.v79.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/TxDb.Mmusculus.UCSC.mm9.knownGene.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/EnsDb.Hsapiens.v75.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/EnsDb.Hsapiens.v86.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/EnsDb.Mmusculus.v79.html",
+                "https://bioconductor.org/packages/release/data/annotation/html/TxDb.Mmusculus.UCSC.mm9.knownGene.html",
+                "http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg19_quantileNormalized_round4.txt.gz",
+                "http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg38_quantileNormalized_round4.txt.gz"),
+  SourceVersion = "Jun 18 2020",
+  Species = c(rep(c("Homo sapiens", "Homo sapiens", "Mus musculus", "Mus musculus"), 3), rep("Homo sapiens", 2)),
+  TaxonomyId = c(rep(c(9606, 9606, 10090, 10090), 3), rep(9606, 2)),
+  Coordinate_1_based = TRUE,
+  DataProvider = "Ensdb",
+  Maintainer = "Michal Stolarczyk <mjs5kd@virginia.edu>",
+  RDataClass = c(rep("Int", 4), rep("GRanges", 4), rep("list with 4 GRanges", 4), rep("data.frame", 2)) ,
+  DispatchClass = c(rep("Rda", 14)),
+  RDataPath = c(paste0(GD, "chromSizes_hg19.rda"),
+                paste0(GD, "chromSizes_hg38.rda"),
+                paste0(GD, "chromSizes_mm9.rda"),
+                paste0(GD, "chromSizes_mm10.rda"),
+                paste0(GD, "TSS_hg19.rda"),
+                paste0(GD, "TSS_hg38.rda"),
+                paste0(GD, "TSS_mm9.rda"),
+                paste0(GD, "TSS_mm10.rda"),
+                paste0(GD, "geneModels_hg19.rda"),
+                paste0(GD, "geneModels_hg38.rda"),
+                paste0(GD, "geneModels_mm9.rda"),
+                paste0(GD, "geneModels_mm10.rda"),
+                paste0(GD, "openSignalMatrix_hg19.rda"),
+                paste0(GD, "openSignalMatrix_hg38.rda")),
+  Tags = ""
+)
+
+write.csv(meta, file="inst/extdata/metadata.csv", row.names=FALSE)
+#ExperimentHubData::makeExperimentHubMetadata("~/Desktop/GDdata_release/GenomicDistributionsData", fileName = "metadata.csv")

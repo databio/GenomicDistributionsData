@@ -11,9 +11,21 @@ A named vectors of lengths with one item per chromosome
 BSgenome.Hsapiens.UCSC.hg38 package
 }
 \usage{
-data(chromSizes_hg38)
+chromSizes_hg38(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A vector of lengths
 }
 \description{
-A dataset containing chromosome sizes for Homo Sapiens hg38 genome assembly
+A dataset containing chromosome sizes for Homo sapiens hg38 genome assembly
+}
+\examples{
+hg38c = chromSizes_hg38()
+
 }
 \keyword{datasets}

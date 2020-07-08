@@ -3,7 +3,7 @@
 \docType{data}
 \name{openSignalMatrix_hg38}
 \alias{openSignalMatrix_hg38}
-\title{A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo Sapiens hg38}
+\title{A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo sapiens hg38}
 \format{
 data.frame, rows represent whole selection of open
 chromatin regions across all cell types defined by ENCODE, columns are
@@ -13,7 +13,15 @@ individual cell types and values are normalized open chromatin signal values.
 \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg38_quantileNormalized_round4.txt.gz}
 }
 \usage{
-data(openSignalMatrix_hg38)
+openSignalMatrix_hg38(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A data.frame with hg38 open chromatin regions.
 }
 \description{
 Preparation steps:
@@ -23,5 +31,11 @@ Preparation steps:
 \item{evaluated the signal above regions defined by previous step}
 \item{performed quantile normalization}
 }
+}
+\examples{
+\dontrun{
+hg38OpenSignal = openSignalMatrix_hg38()
+}
+
 }
 \keyword{datasets}

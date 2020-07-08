@@ -18,7 +18,7 @@
 #' @param genomeBuild string, genome identifier
 #'
 #' @return loaded library
-#' @export
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -30,12 +30,12 @@ loadEnsDb = function(genomeBuild) {
                                 hg38 = "EnsDb.Hsapiens.v86",
                                 hg19 = "EnsDb.Hsapiens.v75",
                                 mm10 = "EnsDb.Mmusculus.v79",
-                                bogus = "bogus" # a bogus (uninstalled) db for unit tests
+                                bogus = "bogus" # a bogus db for unit tests
     )
     
     if (is.null(databasePkgString)) {
         stop("I don't know how to map the string ", genomeBuild,
-             " to a EnsDb")
+                " to a EnsDb")
     }
     return(.requireAndReturn(databasePkgString))
 }
@@ -46,7 +46,7 @@ loadEnsDb = function(genomeBuild) {
 #' @param genomeBuild string, genome identifier
 #'
 #' @return loaded library
-#' @export
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -73,11 +73,13 @@ loadTxDb = function(genomeBuild) {
 #' more complex annotation for a complete BSgenome object (e.g.
 #' BSgenome.Hsapiens.UCSC.hg38.masked)
 #' 
-#' @param genomeBuild	One of 'hg19', 'hg38', 'mm10', 'mm9', or 'grch38'
-#' @param masked	Should we used the masked version? Default:TRUE
-#' @export
+#' @param genomeBuild One of 'hg19', 'hg38', 'mm10', 'mm9', or 'grch38'
+#' @param masked Should we used the masked version? Default:TRUE
+#' @return a BSgenome object according to the specified genome assembly
+#' 
 #' @import BSgenome
 #' @import GenomicRanges
+#' 
 #' @examples
 #' \dontrun{
 #' bsg = loadBSgenome('hg19')
@@ -101,7 +103,7 @@ loadBSgenome = function(genomeBuild, masked=TRUE) {
     
     if (is.null(databasePkgString)) {
         stop("I don't know how to map the string ", genomeBuild,
-             " to a BSgenome")
+                " to a BSgenome")
     }
     return(.requireAndReturn(databasePkgString))
 }

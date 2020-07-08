@@ -5,7 +5,7 @@
 #' @return named int, sizes of chromosome with respective names
 #' 
 #' @importFrom GenomeInfoDb seqlengths
-#' @export
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -24,8 +24,9 @@ buildChromSizes <- function(assembly) {
 #' @param refAssembly string, reference assembly identifier to build gene
 #'  model for
 #'
-#' @return a list of four GRanges objects: genesGR, exonsGR, threeUTRGR, fiveUTRGR
-#' @export
+#' @return a list of four GRanges objects: genesGR, exonsGR, threeUTRGR, 
+#' fiveUTRGR
+#' 
 #' @import ensembldb
 #' @import GenomicRanges
 #' @import GenomicFeatures
@@ -44,10 +45,12 @@ buildGeneModels <- function(refAssembly) {
         codingFilter = AnnotationFilter::AnnotationFilter(~ gene_biotype == "protein_coding")
         geneFeats = ensembldb::genes(EnsDb, filter = codingFilter, columns=NULL)
         exonFeats = ensembldb::exons(EnsDb, filter = codingFilter, columns=NULL)
-        UTR5Feats = ensembldb::fiveUTRsByTranscript(EnsDb, filter = codingFilter,
+        UTR5Feats = ensembldb::fiveUTRsByTranscript(EnsDb, 
+                                                    filter = codingFilter,
                                                     columns = NULL)
-        UTR3Feats = ensembldb::threeUTRsByTranscript(EnsDb, filter = codingFilter, 
-                                                     columns = NULL)
+        UTR3Feats = ensembldb::threeUTRsByTranscript(EnsDb, 
+                                                    filter = codingFilter, 
+                                                    columns = NULL)
         UTR5Feats = unlist(UTR5Feats)
         UTR3Feats = unlist(UTR3Feats)
         # Smash 
@@ -71,7 +74,7 @@ buildGeneModels <- function(refAssembly) {
         seqlevels(UTR5Feats) = paste0("chr", seqlevels(UTR5Feats))
         seqlevels(UTR3Feats) = paste0("chr", seqlevels(UTR3Feats))
         list(genesGR=geneFeats, exonsGR=exonFeats, threeUTRGR=UTR3Feats, 
-             fiveUTRGR=UTR5Feats)
+            fiveUTRGR=UTR5Feats)
     }, error=function(err){
         # Try a TxDb instead
         message("Failed, trying a UCSC TxDb instead")
@@ -85,7 +88,7 @@ buildGeneModels <- function(refAssembly) {
         geneFeats = reduce(geneFeats)
         exonFeats = reduce(exonFeats)
         list(genesGR=geneFeats, exonsGR=exonFeats,  threeUTRGR=UTR3Feats, 
-             fiveUTRGR=UTR5Feats)
+            fiveUTRGR=UTR5Feats)
     })
     return(geneModels)
 }
@@ -95,7 +98,7 @@ buildGeneModels <- function(refAssembly) {
 #' @param assembly string, reference assembly identifier to TSS for
 #'
 #' @return GRanges object that consists of transcription start sites locations
-#' @export
+#' 
 #' @import ensembldb
 #' @import GenomicRanges
 #' @import GenomicFeatures
@@ -141,7 +144,7 @@ buildTSS <- function(assembly) {
 #' @return data.frame, rows represent whole selection of open 
 #' chromatin regions across all cell types defined by ENCODE, columns are 
 #' individual cell types and values are normalized open chromatin signal values
-#' @export
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -152,8 +155,8 @@ buildOpenSignalMatrix <- function(assembly) {
     message("building ", storedObjectName)
     f = tempfile(pattern=storedObjectName, fileext=".txt.gz")
     url=paste0("http://big.databio.org/open_chromatin_matrix/openSignalMatrix_", 
-               assembly, "_quantileNormalized_round4.txt.gz")
-    download.file(url=url, destfile=f)
+                assembly, "_quantileNormalized_round4.txt.gz")
+    utils::download.file(url=url, destfile=f)
     message("reading ", f)
     cellMatrix = data.table::fread(f)
     return(cellMatrix)

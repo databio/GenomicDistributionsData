@@ -11,9 +11,21 @@ A list of two GRanges objects, with genes and exons locations
 EnsDb.Hsapiens.v75 package
 }
 \usage{
-data(geneModels_hg19)
+geneModels_hg19(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A list with two GRanges objects.
 }
 \description{
-A dataset containing gene models for Homo Sapiens hg19 genome assembly
+A dataset containing gene models for Homo sapiens hg19 genome assembly
+}
+\examples{
+hg19GeneModels = geneModels_hg19()
+
 }
 \keyword{datasets}

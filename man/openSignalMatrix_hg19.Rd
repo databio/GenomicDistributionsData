@@ -13,7 +13,15 @@ individual cell types and values are normalized open chromatin signal values.
 \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg319_quantileNormalized_round4.txt.gz}
 }
 \usage{
-data(openSignalMatrix_hg19)
+openSignalMatrix_hg19(metadata=FALSE)
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
+}
+\value{
+A data.frame with hg19 open chromatin regions.
 }
 \description{
 Preparation steps:
@@ -23,5 +31,11 @@ Preparation steps:
 \item{evaluated the signal above regions defined by previous step}
 \item{performed quantile normalization}
 }
+}
+\examples{
+\dontrun{
+hg19OpenSignal = openSignalMatrix_hg19()
+}
+
 }
 \keyword{datasets}
