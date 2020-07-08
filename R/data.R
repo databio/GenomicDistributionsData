@@ -86,7 +86,7 @@ NULL
 #' @docType data
 #' @keywords datasets
 #' @usage TSS_hg19(metadata=FALSE)
-#' #' @param metadata \code{logical} value indicating whether only
+#' @param metadata \code{logical} value indicating whether only
 #'     metadata should be returned or if the resource
 #'     should be loaded
 #' @return A GRanges object with hg19 TSS locations.

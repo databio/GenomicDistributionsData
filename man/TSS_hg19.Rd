@@ -12,9 +12,11 @@ EnsDb.Hsapiens.v75 package
 }
 \usage{
 TSS_hg19(metadata=FALSE)
-#' @param metadata \code{logical} value indicating whether only
-    metadata should be returned or if the resource
-    should be loaded
+}
+\arguments{
+\item{metadata}{\code{logical} value indicating whether only
+metadata should be returned or if the resource
+should be loaded}
 }
 \value{
 A GRanges object with hg19 TSS locations.
