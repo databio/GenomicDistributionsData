@@ -1,6 +1,6 @@
 library(GenomicDistributionsData)
 library(usethis)
-assemblyList=c("hg19","hg38")
+assemblyList=c("hg19","hg38", "mm10")
 for(assembly in assemblyList){
     cellMatrix = buildOpenSignalMatrix(assembly)
     storedObjectName = paste0("openSignalMatrix_", assembly)
