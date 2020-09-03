@@ -155,7 +155,7 @@ buildOpenSignalMatrix <- function(assembly) {
     message("building ", storedObjectName)
     f = tempfile(pattern=storedObjectName, fileext=".txt.gz")
     url=paste0("http://big.databio.org/open_chromatin_matrix/openSignalMatrix_", 
-                assembly, "_quantileNormalized_round4.txt.gz")
+                assembly, "_percentile99_01_quantNormalized_round4d.txt.gz")
     utils::download.file(url=url, destfile=f)
     message("reading ", f)
     cellMatrix = data.table::fread(f)
