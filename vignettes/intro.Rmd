@@ -21,7 +21,7 @@ knitr::opts_chunk$set(results="hold", collapse=FALSE, message=FALSE)
 
 # Introduction to GenomicDistributionsData
 
-GenomicDistributionsData is the associated data package for GenomicDistributions. Using GenomicDistributionsData, we can generate information about chromosome sizes, TRanscription Start Sites (TSS), gene models (exons, introns, etc) for 4 different genome assemblies: **hg19, hg38, mm9 and mm10**. These datasets can then be used as input for the main functions in the GenomicDistributions Package. Additionally, GenomicDistributionsData generates open chromatin signal matrices used for calculating the tissue specificity of a set of genomic ranges (currently for hg19 and hg38).
+GenomicDistributionsData is the associated data package for GenomicDistributions. Using GenomicDistributionsData, we can generate information about chromosome sizes, Transcription Start Sites (TSS), gene models (exons, introns, etc.) for 4 different genome assemblies: **hg19, hg38, mm9 and mm10**. These datasets can then be used as input for the main functions in the GenomicDistributions Package. Additionally, GenomicDistributionsData generates open chromatin signal matrices used for calculating the tissue specificity of a set of genomic ranges (currently for hg19, hg38 and mm10).
 
 In this vignette we'll go over the steps to access the **hg38** data files using the *ExperimentHub* interface. 
 
