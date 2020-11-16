@@ -123,6 +123,7 @@ geneModels_mm10()
 geneModels_mm9()
 openSignalMatrix_hg38()
 openSignalMatrix_hg19()
+openSignalMatrix_mm10()
 ```
 
 

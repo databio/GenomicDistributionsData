@@ -7,24 +7,12 @@ R package that provides full data for GenomicDistributions package that provides
 
 ## Installation
 
-### From remote tarball
-
-Includes `.rda` data files in `data/` subdirectory
-
 ```r
-install.packages("http://big.databio.org/GenomicDistributionsData/GenomicDistributionsData_0.0.1.tar.gz", repos=NULL)
+if (!requireNamespace("BiocManager", quietly = TRUE))
+install.packages("BiocManager")
+BiocManager::install("GenomicDistributions")
 ```
 
-### Locally from this repository
-
-Does not include `.rda` data files. These can be accessed using ExperimentHub or with named functions 
-as detailed in the package vignette.
-
-```bash
-git clone https://github.com/databio/GenomicDistributionsData.git
-cd GenomicDistributionsData
-R CMD INSTALL .
-```
 
 ## Usage
 
