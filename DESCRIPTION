@@ -1,6 +1,6 @@
 Package: GenomicDistributionsData
 Title: Reference data for GenomicDistributions package
-Version: 0.99.1
+Version: 0.99.2
 Authors@R:c(person(given = "Michal",
            family = "Stolarczyk",
            role = c("aut", "cre"),
