@@ -10,7 +10,7 @@ R package that provides full data for GenomicDistributions package that provides
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE))
 install.packages("BiocManager")
-BiocManager::install("GenomicDistributions")
+BiocManager::install("GenomicDistributionsData")
 ```
 
 
