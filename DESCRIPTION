@@ -39,4 +39,3 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 BugReports: http://github.com/databio/GenomicDistributionsData
-
