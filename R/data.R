@@ -292,7 +292,7 @@ NULL
 #' @format data.frame, rows represent whole selection of open 
 #' chromatin regions across all cell types defined by ENCODE, columns are 
 #' individual cell types and values are normalized open chromatin signal values.
-#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg319_quantileNormalized_round4.txt.gz}
+#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg19_quantileNormalized_round4.txt.gz}
 #' @name openSignalMatrix_hg19
 #' @docType data
 #' @keywords datasets
