@@ -260,7 +260,7 @@ NULL
 #' @format data.frame, rows represent whole selection of open 
 #' chromatin regions across all cell types defined by ENCODE, columns are 
 #' individual cell types and values are normalized open chromatin signal values.
-#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg38_quantileNormalized_round4.txt.gz}
+#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg38_percentile99_01_quantNormalized_round4d.txt.gz}
 #' @name openSignalMatrix_hg38
 #' @docType data
 #' @keywords datasets
@@ -292,7 +292,7 @@ NULL
 #' @format data.frame, rows represent whole selection of open 
 #' chromatin regions across all cell types defined by ENCODE, columns are 
 #' individual cell types and values are normalized open chromatin signal values.
-#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg319_quantileNormalized_round4.txt.gz}
+#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg19_percentile99_01_quantNormalized_round4d.txt.gz}
 #' @name openSignalMatrix_hg19
 #' @docType data
 #' @keywords datasets
@@ -304,6 +304,38 @@ NULL
 #' @examples 
 #' \dontrun{
 #' hg19OpenSignal = openSignalMatrix_hg19()
+#' }
+#' 
+NULL
+
+
+#’ mm10 open signal matrix
+#' 
+#' A dataset containing open chromatin regions across all cell types defined by ENCODE for Mus musculus mm10
+#' 
+#' Preparation steps:
+#' \enumerate{
+#'    \item{made a universe of regions by merging regions across cell types defined as opened in ENCODE}
+#'    \item{took bigwig files from ENCODE for individual cell types, merged replicates, filtered out blacklisted sites}
+#'    \item{evaluated the signal above regions defined by previous step}
+#'    \item{performed quantile normalization}
+#' }
+#'
+#' @format data.frame, rows represent whole selection of open 
+#' chromatin regions across all cell types defined by ENCODE, columns are 
+#' individual cell types and values are normalized open chromatin signal values.
+#' @source \url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_mm10_percentile99_01_quantNormalized_round4d.txt.gz}
+#' @name openSignalMatrix_mm10
+#' @docType data
+#' @keywords datasets
+#' @usage openSignalMatrix_mm10(metadata=FALSE)
+#' @param metadata \code{logical} value indicating whether only
+#'     metadata should be returned or if the resource
+#'     should be loaded
+#' @return A data.frame with mm10 open chromatin regions.
+#' @examples 
+#' \dontrun{
+#' mm10OpenSignal = openSignalMatrix_mm10()
 #' }
 #' 
 NULL

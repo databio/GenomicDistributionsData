@@ -24,7 +24,7 @@ meta <- data.frame(
                   "A dataset containing gene and exons locations for the Mus musculus  mm10 genome assembly",
                   "A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo sapiens hg19",
                   "A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo sapiens hg38",
-                  "A dataset containing open chromatin regions across all cell types defined by ENCODE for Homo sapiens mm10"),
+                  "A dataset containing open chromatin regions across all cell types defined by ENCODE for Mus musculus mm10"),
   BiocVersion = rep("3.12", 15),
   Genome = c(rep(c("hg19", "hg38", "mm9", "mm10"), 3), "hg19", "hg38", "mm10"), 
   SourceType = c(rep("UCSC track", 4), rep(c("ensembl", "ensembl", "ensembl", "ensembl"), 2), rep("TXT", 3)), 

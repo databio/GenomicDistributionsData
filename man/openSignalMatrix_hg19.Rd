@@ -10,7 +10,7 @@ chromatin regions across all cell types defined by ENCODE, columns are
 individual cell types and values are normalized open chromatin signal values.
 }
 \source{
-\url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg319_quantileNormalized_round4.txt.gz}
+\url{http://big.databio.org/open_chromatin_matrix/openSignalMatrix_hg19_percentile99_01_quantNormalized_round4d.txt.gz}
 }
 \usage{
 openSignalMatrix_hg19(metadata=FALSE)
