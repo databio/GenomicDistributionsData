@@ -1,7 +1,7 @@
 Package: GenomicDistributionsData
 Title: Reference data for GenomicDistributions package
 Version: 0.99.3
-Authors@R:c(person(given = "Michal",
+Authors@R: c(person(given = "Michal",
            family = "Stolarczyk",
            role = c("aut", "cre"),
            email = "mjs5kd@virginia.edu"),
@@ -19,7 +19,7 @@ License: BSD_2_clause + file LICENSE
 biocViews: ExperimentHub, ExperimentData, Genome
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Depends: 
     R (>= 4.0)
 Imports:
@@ -39,3 +39,4 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 BugReports: http://github.com/databio/GenomicDistributionsData
+
