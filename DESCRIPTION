@@ -1,14 +1,15 @@
 Package: GenomicDistributionsData
 Title: Reference data for GenomicDistributions package
-Version: 0.99.4
+Version: 0.99.5
 Authors@R: c(person(given = "Michal",
            family = "Stolarczyk",
-           role = c("aut", "cre"),
+           role = "aut",
            email = "mjs5kd@virginia.edu"),
+    person("Kristyna", "Kupkova", role=c("aut", "cre"), 
+    email = "kristynakupkova@gmail.com"),
     person("Jose", "Verdezoto", role="aut"),
     person("John", "Lawson", role="ctb"),
     person("Jason", "Smith", role="ctb"),
-    person("Kristyna", "Kupkova", role="ctb"),
     person(c("Nathan", "C."), "Sheffield", role="ctb"))
 Description: This package provides ready to use reference data for 
     GenomicDistributions package. Raw data was obtained from 
